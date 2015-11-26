@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="keyboard_settings_items_titles">
+        <item>Ui</item>
+        <item>Background color</item>
+        <item>Background transparency</item>
+        <item>Keyboard size mode</item>
+        <item>Size of keyboard</item>
+        <item>Font size</item>
+        <item>Font style</item>
+        <item>Show key labels</item>
+        <item>Features</item>
+        <item>Vibration </item>
+        <item>Text speech</item>
+        <item>Key sound</item>
+        <item>Spell checking</item>
+        <item>Enable hot keys</item>
+        <item>Adjust hot keys</item>
+        <item>Enable statistic</item>
+        <item>View statistic</item>
+        <item>Additional</item>
+        <item>Tutorial </item>
+        <item>About us</item>
+        <item>Contact us</item>
+    </string-array>
+</resources>

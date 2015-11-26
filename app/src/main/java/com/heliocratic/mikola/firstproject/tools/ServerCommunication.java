@@ -24,20 +24,22 @@ public class ServerCommunication {
         httpclient = new DefaultHttpClient();
     }
 
-    public List get(String requestUrl) {
+    public String get(String requestUrl) {
         HttpGet httpGet = new HttpGet(requestUrl);
+        String responseTxt = null;
         try {
             HttpResponse response = httpclient.execute(httpGet);
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 InputStream inputstream = entity.getContent();
-                Log.d("HTTP REQUEST GET", responseToString(inputstream));
+                responseTxt = responseToString(inputstream);
+                Log.d("HTTP REQUEST GET", responseTxt);
                 inputstream.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return responseTxt;
     }
 
     public void post(String requestUrl, List<BasicNameValuePair> postParameters) {
