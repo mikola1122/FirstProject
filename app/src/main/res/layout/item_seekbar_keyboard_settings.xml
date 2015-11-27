@@ -5,15 +5,15 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/itemSeekBarKeyboardSettingTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/itemSeekBarKeyboardSettingTitle"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="left"
+        android:text="" />
 
     <SeekBar
+        android:id="@+id/SeekBarKeyboardSetting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/SeekBarKeyboardSetting"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="left" />
 </LinearLayout>
