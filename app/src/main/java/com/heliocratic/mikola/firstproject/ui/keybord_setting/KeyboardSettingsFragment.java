@@ -3,6 +3,7 @@ package com.heliocratic.mikola.firstproject.ui.keybord_setting;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,8 @@ public class KeyboardSettingsFragment extends Fragment {
         ksView = inflater.inflate(R.layout.fragment_screen_keyboard_settings, null);
 
         String[] itemTitle = getResources().getStringArray(R.array.keyboard_settings_items_titles);
-        for (int i = 0; i < itemTitle.length - 1; i++){
+        for (int i = 0; i < itemTitle.length; i++){
+            Log.d("NIKI", itemTitle[i]);
             itemTitleList.add(itemTitle[i]);
         }
 
