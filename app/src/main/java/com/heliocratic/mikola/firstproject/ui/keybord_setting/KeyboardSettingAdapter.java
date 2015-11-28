@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.heliocratic.mikola.firstproject.R;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class KeyboardSettingAdapter extends BaseAdapter {
     public static final int TYPE_ITEM_TEXT = 0;
@@ -20,23 +21,21 @@ public class KeyboardSettingAdapter extends BaseAdapter {
     public static final int TYPE_MAX_COUNT = TYPE_ITEM_SEEKBAR + 1;
 
     private Context context;
-    private String[] itemTitle;
-    private LayoutInflater layoutInflater;
+    private List<String> itemTitle = new ArrayList<String>();
 
-    public KeyboardSettingAdapter(String[] itemTitle, Context context) {
+    public KeyboardSettingAdapter(List<String> itemTitle, Context context) {
         this.itemTitle = itemTitle;
         this.context = context;
-//        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return itemTitle.length;
+        return itemTitle.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return itemTitle[position];
+        return itemTitle.get(position);
     }
 
     @Override
@@ -46,9 +45,9 @@ public class KeyboardSettingAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 8 || position == 10 || position == 13 || position == 14 || position == 16)
+        if (position == 7 || position == 9 || position == 12 || position == 13 || position == 15)
             return TYPE_ITEM_CHECK;
-        else if(position == 2 || position == 3 || position == 6)
+        else if(position == 1 || position == 2 || position == 5)
             return TYPE_ITEM_SEEKBAR;
          else
             return TYPE_ITEM_TEXT;
@@ -67,35 +66,38 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                 case TYPE_ITEM_TEXT:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_text_keyboard_setting, parent, false);
                     TextViewHolder textViewHolder = new TextViewHolder(convertView);
-                    textViewHolder.optionsTitle.setText(itemTitle[position]);
+                    textViewHolder.optionsTitle.setText(itemTitle.get(position));
                     convertView.setTag(textViewHolder);
                     break;
                 case TYPE_ITEM_CHECK:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_checkbox_keyboard_setting, parent, false);
                     CheckBoxViewHolder checkBoxViewHolder = new CheckBoxViewHolder(convertView);
-                    checkBoxViewHolder.optionsTitle.setText(itemTitle[position]);
+                    checkBoxViewHolder.optionsTitle.setText(itemTitle.get(position));
                     checkBoxViewHolder.checkBox.setText("on/off");
                     convertView.setTag(checkBoxViewHolder);
                     break;
                 case TYPE_ITEM_SEEKBAR:
                     convertView = LayoutInflater.from(context).inflate(R.layout.item_seekbar_keyboard_settings, parent, false);
                     SeekBarViewHolder seekBarViewHolder = new SeekBarViewHolder(convertView);
-                    seekBarViewHolder.optionsTitle.setText(itemTitle[position]);
+                    seekBarViewHolder.optionsTitle.setText(itemTitle.get(position));
+//                    seekBarViewHolder.seekBar.setClickable(false);
+//                    seekBarViewHolder.seekBar.setFocusable(false);
+//                    seekBarViewHolder.seekBar.setEnabled(false);
                     convertView.setTag(seekBarViewHolder);
                     break;
             }
         } else {
             try {
                 convertView.getTag();
-            } catch (Exception e){
-
-            }
+            } catch (Exception e){}
         }
         return convertView;
     }
 
+    class ViewHolder{
+    }
 
-    class TextViewHolder {
+    class TextViewHolder extends ViewHolder {
         public TextView optionsTitle;
 
         public TextViewHolder(View itemView) {
@@ -103,7 +105,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
         }
     }
 
-    class SeekBarViewHolder {
+    class SeekBarViewHolder extends ViewHolder {
         public TextView optionsTitle;
         public SeekBar seekBar;
 
@@ -113,7 +115,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
         }
     }
 
-    class CheckBoxViewHolder {
+    class CheckBoxViewHolder extends ViewHolder {
         public TextView optionsTitle;
         public CheckBox checkBox;
 

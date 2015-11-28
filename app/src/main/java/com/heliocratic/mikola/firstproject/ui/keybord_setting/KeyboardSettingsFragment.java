@@ -10,21 +10,30 @@ import android.widget.ListView;
 
 import com.heliocratic.mikola.firstproject.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KeyboardSettingsFragment extends Fragment {
     private View ksView;
     private ListView listView;
+    private List<String> itemTitleList = new ArrayList<String>();
     private KeyboardSettingAdapter keyboardAdapter;
-    public static final int ITEM_KEYBOARD_SETTING_COUNT = 21;
-    private String[] itemTitle = new String[ITEM_KEYBOARD_SETTING_COUNT];
+//    public static final int ITEM_KEYBOARD_SETTING_COUNT = 21;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ksView = inflater.inflate(R.layout.fragment_screen_keyboard_settings, null);
-        itemTitle = getResources().getStringArray(R.array.keyboard_settings_items_titles);
+
+        String[] itemTitle = getResources().getStringArray(R.array.keyboard_settings_items_titles);
+        for (int i = 0; i < itemTitle.length - 1; i++){
+            itemTitleList.add(itemTitle[i]);
+        }
+
+
         listView = (ListView) ksView.findViewById(R.id.keyboardSettingsListView);
-        keyboardAdapter = new KeyboardSettingAdapter(itemTitle, getContext());
+        keyboardAdapter = new KeyboardSettingAdapter(itemTitleList, getContext());
         listView.setAdapter(keyboardAdapter);
 
         return ksView;
