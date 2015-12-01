@@ -21,6 +21,15 @@ public class SharedPrefStorage {
         getPrefs(context).edit().putInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR, value).apply();
     }
 
+    public static int getKeyboardBackgroundColorPref1(Context context) {
+        return getPrefs(context).getInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR1,
+                SharedPrefConstants.DEFAULT_KEYBORD_BACKGROUND_COLOR1);
+    }
+
+    public static void setKeyboardBackgroundColorPref1(Context context, int value) {
+        getPrefs(context).edit().putInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR1, value).apply();
+    }
+
     public static int getKeyboardBackgroundTransparencyPref(Context context) {
         return getPrefs(context).getInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_TRANSPARENCY,
                 SharedPrefConstants.DEFAULT_KEYBORD_BACKGROUND_TRANSPARENCY);

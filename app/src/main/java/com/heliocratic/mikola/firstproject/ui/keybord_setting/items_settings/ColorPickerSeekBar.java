@@ -1,22 +1,16 @@
 package com.heliocratic.mikola.firstproject.ui.keybord_setting.items_settings;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
-import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
 
-import com.heliocratic.mikola.firstproject.tools.SharedPrefStorage;
-
-public class ColorPickerSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeListener{
+public class ColorPickerSeekBar extends SeekBar {
 
     private OnColorSeekBarChangeListener mOnColorSeekbarChangeListener;
-    private Context context;
 
     public void setOnColorSeekbarChangeListener(OnColorSeekBarChangeListener listener){
         this.mOnColorSeekbarChangeListener = listener;
@@ -24,20 +18,14 @@ public class ColorPickerSeekBar extends SeekBar implements SeekBar.OnSeekBarChan
 
     public ColorPickerSeekBar(Context context) {
         super(context);
-        this.context = context;
-        setOnSeekBarChangeListener(this);
     }
 
     public ColorPickerSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
-        setOnSeekBarChangeListener(this);
     }
 
     public ColorPickerSeekBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        this.context = context;
-        setOnSeekBarChangeListener(this);
     }
 
     @Override
@@ -45,6 +33,8 @@ public class ColorPickerSeekBar extends SeekBar implements SeekBar.OnSeekBarChan
         super.onSizeChanged(w, h, oldw, oldh);
         init();
     }
+
+
 
     /**
      * Initializes the color seekbar with the gradient
@@ -58,12 +48,6 @@ public class ColorPickerSeekBar extends SeekBar implements SeekBar.OnSeekBarChan
         ShapeDrawable shape = new ShapeDrawable(new RectShape());
         shape.getPaint().setShader(colorGradient);
         this.setProgressDrawable(shape);
-        int color = SharedPrefStorage.getKeyboardBackgroundColorPref(context);
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
-        int progress = r + g + b;
-        this.setProgress(progress);
         this.setMax(256 * 7 - 1);
     }
 
@@ -99,57 +83,4 @@ public class ColorPickerSeekBar extends SeekBar implements SeekBar.OnSeekBarChan
         void onStopTrackingTouch(SeekBar seekBar);
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if(null == mOnColorSeekbarChangeListener) {
-            return;
-        }
-
-        int r = 0;
-        int g = 0;
-        int b = 0;
-
-        if(progress < 256){
-            b = progress;
-        } else if(progress < 256*2) {
-            g = progress%256;
-            b = 256 - progress%256;
-        } else if(progress < 256*3) {
-            g = 255;
-            b = progress%256;
-        } else if(progress < 256*4) {
-            r = progress%256;
-            g = 256 - progress%256;
-            b = 256 - progress%256;
-        } else if(progress < 256*5) {
-            r = 255;
-            g = 0;
-            b = progress%256;
-        } else if(progress < 256*6) {
-            r = 255;
-            g = progress%256;
-            b = 256 - progress%256;
-        } else if(progress < 256*7) {
-            r = 255;
-            g = 255;
-            b = progress%256;
-        }
-        mOnColorSeekbarChangeListener.onColorChanged(seekBar, Color.argb(255, r, g, b), fromUser);
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        if(null == mOnColorSeekbarChangeListener) {
-            return;
-        }
-        mOnColorSeekbarChangeListener.onStartTrackingTouch(seekBar);
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        if(null == mOnColorSeekbarChangeListener) {
-            return;
-        }
-        mOnColorSeekbarChangeListener.onStopTrackingTouch(seekBar);
-    }
 }

@@ -167,6 +167,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                             b = progress % 256;
                         }
                         SharedPrefStorage.setKeyboardBackgroundColorPref(context, Color.argb(255, r, g, b));
+                        SharedPrefStorage.setKeyboardBackgroundColorPref(context, progress);
                     }
 
                     @Override
@@ -179,24 +180,8 @@ public class KeyboardSettingAdapter extends BaseAdapter {
 
                     }
                 });
-//                LinearGradient colorGradient = new LinearGradient(0.f, 0.f, rainbowSeekBarViewHolder
-//                        .seekBar.getMeasuredWidth() - rainbowSeekBarViewHolder.seekBar.getThumb()
-//                        .getIntrinsicWidth(), 0.f,
-//                        new int[]{0xFF000000, 0xFF0000FF, 0xFF00FF00, 0xFF00FFFF,
-//                                0xFFFF0000, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF},
-//                        null, Shader.TileMode.CLAMP
-//                );
-//                ShapeDrawable shape = new ShapeDrawable(new RectShape());
-//                shape.getPaint().setShader(colorGradient);
-//                rainbowSeekBarViewHolder.seekBar.setProgressDrawable(shape);
-//                rainbowSeekBarViewHolder.seekBar.setMax(256 * 7 - 1);
-//                LinearGradient test = new LinearGradient(0.f, 0.f, 655.f, 0.0f,
-//                        new int[]{0xFF000000, 0xFF0000FF, 0xFF00FF00, 0xFF00FFFF,
-//                                0xFFFF0000, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF},
-//                        null, Shader.TileMode.CLAMP);
-//                ShapeDrawable shape = new ShapeDrawable(new RectShape());
-//                shape.getPaint().setShader(test);
-//                rainbowSeekBarViewHolder.seekBar.setProgressDrawable((Drawable) shape);
+                rainbowSeekBarViewHolder.seekBar.setProgress(SharedPrefStorage
+                        .getKeyboardBackgroundColorPref1(context));
                 break;
         }
         return convertView;

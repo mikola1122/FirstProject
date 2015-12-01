@@ -18,4 +18,8 @@ public class SharedPrefConstants {
     public static final int DEFAULT_KEYBORD_FONT_SIZE = 10;
     public static final int DEFAULT_KEYBORD_FONT_STYLE = 0;
     public static final int DEFAULT_KEYBORD_KEY_LABELS = 1;
+
+    public static final String KEY_KEYBORD_BACKGROUND_COLOR1 = "BackgroundColor1";
+    public static final int DEFAULT_KEYBORD_BACKGROUND_COLOR1 = 0;
+
 }
