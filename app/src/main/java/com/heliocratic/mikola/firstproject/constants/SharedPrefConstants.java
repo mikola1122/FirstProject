@@ -11,7 +11,7 @@ public class SharedPrefConstants {
     public static final String KEY_KEYBORD_FONT_STYLE = "KeyboardFontStyle";
     public static final String KEY_KEYBORD_KEY_LABELS = "KeyboardShowKeyLabels";
 
-    public static final int DEFAULT_KEYBORD_BACKGROUND_COLOR = R.color.colorKeyboardBackgroundDefault;
+    public static final int DEFAULT_KEYBORD_BACKGROUND_COLOR = 0xFF000000;
     public static final int DEFAULT_KEYBORD_BACKGROUND_TRANSPARENCY = 255;
     public static final int DEFAULT_KEYBORD_SIZE_MODE = 0;
     public static final int DEFAULT_KEYBORD_SIZE = 0;
@@ -19,7 +19,7 @@ public class SharedPrefConstants {
     public static final int DEFAULT_KEYBORD_FONT_STYLE = 0;
     public static final int DEFAULT_KEYBORD_KEY_LABELS = 1;
 
-    public static final String KEY_KEYBORD_BACKGROUND_COLOR1 = "BackgroundColor1";
-    public static final int DEFAULT_KEYBORD_BACKGROUND_COLOR1 = 0;
+    public static final String KEY_KEYBORD_BACKGROUND_COLOR_PROGRESS = "BackgroundColor1";
+    public static final int DEFAULT_KEYBORD_BACKGROUND_COLOR_PROGRESS = 0;
 
 }

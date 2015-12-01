@@ -22,12 +22,12 @@ public class SharedPrefStorage {
     }
 
     public static int getKeyboardBackgroundColorPref1(Context context) {
-        return getPrefs(context).getInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR1,
-                SharedPrefConstants.DEFAULT_KEYBORD_BACKGROUND_COLOR1);
+        return getPrefs(context).getInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR_PROGRESS,
+                SharedPrefConstants.DEFAULT_KEYBORD_BACKGROUND_COLOR_PROGRESS);
     }
 
     public static void setKeyboardBackgroundColorPref1(Context context, int value) {
-        getPrefs(context).edit().putInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR1, value).apply();
+        getPrefs(context).edit().putInt(SharedPrefConstants.KEY_KEYBORD_BACKGROUND_COLOR_PROGRESS, value).apply();
     }
 
     public static int getKeyboardBackgroundTransparencyPref(Context context) {

@@ -122,6 +122,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                     separatorViewHolder = (SeparatorViewHolder) convertView.getTag();
                 }
                 separatorViewHolder.optionsTitle.setText(itemTitle[position]);
+//                separatorViewHolder.optionsTitle.setEnabled(false);
                 break;
             case TYPE_ITEM_RAINBOW_SEEKBAR:
                 RainbowSeekBarViewHolder rainbowSeekBarViewHolder = null;
@@ -166,6 +167,9 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                             g = 255;
                             b = progress % 256;
                         }
+                        Log.d("NIKIM", String.valueOf(r));
+                        Log.d("NIKIM", String.valueOf(g));
+                        Log.d("NIKIM", String.valueOf(b));
                         SharedPrefStorage.setKeyboardBackgroundColorPref(context, Color.argb(255, r, g, b));
                         SharedPrefStorage.setKeyboardBackgroundColorPref(context, progress);
                     }

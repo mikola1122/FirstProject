@@ -27,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStackImmediate();
+            return;
+        }
+        super.onBackPressed();
+    }
+
     //Testing class ServerCommunication.java
     private void htmlRequestTest() {
         Thread thread = new Thread(new Runnable() {
