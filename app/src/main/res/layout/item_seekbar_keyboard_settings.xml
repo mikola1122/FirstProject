@@ -9,11 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="" />
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
     <SeekBar
         android:id="@+id/SeekBarKeyboardSetting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@android:color/holo_blue_dark" />
 </LinearLayout>

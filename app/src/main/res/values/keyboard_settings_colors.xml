@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorKeyboardBackgroundDefault">#A4A4A4</color>
+
+    <color name="separatorItemsBackgroundColor">#d4d0c8</color>
+    <color name="separatorItemsTextColor">#000000</color>
+    <color name="separatorItemsTextShadowColor">#A4A4A4</color>
 </resources>
