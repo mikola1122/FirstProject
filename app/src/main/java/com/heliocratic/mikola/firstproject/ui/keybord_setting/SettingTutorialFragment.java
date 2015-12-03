@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 
 import com.heliocratic.mikola.firstproject.R;
 
-public class SettingSizeKeyboardFragment extends Fragment {
+public class SettingTutorialFragment extends Fragment {
     View view;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_setting_size_keyboard, null);
-        return view;
+        view = inflater.inflate(R.layout.fragment_setting_tutorial, null);
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }

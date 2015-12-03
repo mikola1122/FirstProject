@@ -2,12 +2,17 @@ package com.heliocratic.mikola.firstproject.ui.keybord_setting;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -77,7 +82,8 @@ public class KeyboardSettingAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
+
         switch (getItemViewType(position)) {
             case TYPE_ITEM_TEXT:
                 TextViewHolder textViewHolder = null;
@@ -90,17 +96,50 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                 }
                 textViewHolder.optionsTitle.setText(itemTitle[position]);
                 break;
+
             case TYPE_ITEM_CHECK:
                 CheckBoxViewHolder checkBoxViewHolder = null;
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.item_checkbox_keyboard_setting, parent, false);
                     checkBoxViewHolder = new CheckBoxViewHolder(convertView);
+                    checkBoxViewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            switch (position){
+                                case 7:
+                                    break;
+                                case 9:
+                                    break;
+                                case 12:
+                                    break;
+                                case 13:
+                                    break;
+                                case 15:
+                                    break;
+                            }
+                        }
+                    });
                     convertView.setTag(checkBoxViewHolder);
                 } else {
                     checkBoxViewHolder = (CheckBoxViewHolder) convertView.getTag();
                 }
                 checkBoxViewHolder.optionsTitle.setText(itemTitle[position]);
+                switch (position){
+                    case 7:
+                        checkBoxViewHolder.checkBox.setChecked(SharedPrefStorage.getKeyboardKeyLabelsPref(context) == 1);
+                        break;
+                    case 9:
+                        checkBoxViewHolder.checkBox.setChecked(SharedPrefStorage.getKeyboardKeyLabelsPref(context) == 1);
+                        break;
+                    case 12:
+                        break;
+                    case 13:
+                        break;
+                    case 15:
+                        break;
+                }
                 break;
+
             case TYPE_ITEM_SEEKBAR:
                 SeekBarViewHolder seekBarViewHolder = null;
                 if (convertView == null) {
@@ -112,6 +151,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                 }
                 seekBarViewHolder.optionsTitle.setText(itemTitle[position]);
                 break;
+
             case TYPE_ITEM_SEPARATOR:
                 SeparatorViewHolder separatorViewHolder = null;
                 if (convertView == null) {
@@ -122,70 +162,76 @@ public class KeyboardSettingAdapter extends BaseAdapter {
                     separatorViewHolder = (SeparatorViewHolder) convertView.getTag();
                 }
                 separatorViewHolder.optionsTitle.setText(itemTitle[position]);
-//                separatorViewHolder.optionsTitle.setEnabled(false);
+                separatorViewHolder.optionsTitle.setFocusable(false);
+                separatorViewHolder.optionsTitle.setFocusable(false);
                 break;
+
             case TYPE_ITEM_RAINBOW_SEEKBAR:
                 RainbowSeekBarViewHolder rainbowSeekBarViewHolder = null;
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.item_rainbow_seekbar_keyboard_settings,
                             parent, false);
                     rainbowSeekBarViewHolder = new RainbowSeekBarViewHolder(convertView);
+
+                    rainbowSeekBarViewHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                        @Override
+                        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                            int r = 0;
+                            int g = 0;
+                            int b = 0;
+
+                            if (progress < 256) {
+                                b = progress;
+                            } else if (progress < 256 * 2) {
+                                g = progress % 256;
+                                b = 256 - progress % 256;
+                            } else if (progress < 256 * 3) {
+                                g = 255;
+                                b = progress % 256;
+                            } else if (progress < 256 * 4) {
+                                r = progress % 256;
+                                g = 256 - progress % 256;
+                                b = 256 - progress % 256;
+                            } else if (progress < 256 * 5) {
+                                r = 255;
+                                g = 0;
+                                b = progress % 256;
+                            } else if (progress < 256 * 6) {
+                                r = 255;
+                                g = progress % 256;
+                                b = 256 - progress % 256;
+                            } else if (progress < 256 * 7) {
+                                r = 255;
+                                g = 255;
+                                b = progress % 256;
+                            }
+                            SharedPrefStorage.setKeyboardBackgroundColorPref(context, Color.argb(255, r, g, b));
+                            SharedPrefStorage.setKeyboardBackgroundColorPref1(context, progress);
+                        }
+                        @Override
+                        public void onStartTrackingTouch(SeekBar seekBar) {
+                        }
+
+                        @Override
+                        public void onStopTrackingTouch(SeekBar seekBar) {
+                        }
+                    });
                     convertView.setTag(rainbowSeekBarViewHolder);
                 } else {
                     rainbowSeekBarViewHolder = (RainbowSeekBarViewHolder) convertView.getTag();
                 }
                 rainbowSeekBarViewHolder.optionsTitle.setText(itemTitle[position]);
-                rainbowSeekBarViewHolder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        int r = 0;
-                        int g = 0;
-                        int b = 0;
-
-                        if (progress < 256) {
-                            b = progress;
-                        } else if (progress < 256 * 2) {
-                            g = progress % 256;
-                            b = 256 - progress % 256;
-                        } else if (progress < 256 * 3) {
-                            g = 255;
-                            b = progress % 256;
-                        } else if (progress < 256 * 4) {
-                            r = progress % 256;
-                            g = 256 - progress % 256;
-                            b = 256 - progress % 256;
-                        } else if (progress < 256 * 5) {
-                            r = 255;
-                            g = 0;
-                            b = progress % 256;
-                        } else if (progress < 256 * 6) {
-                            r = 255;
-                            g = progress % 256;
-                            b = 256 - progress % 256;
-                        } else if (progress < 256 * 7) {
-                            r = 255;
-                            g = 255;
-                            b = progress % 256;
-                        }
-                        Log.d("NIKIM", String.valueOf(r));
-                        Log.d("NIKIM", String.valueOf(g));
-                        Log.d("NIKIM", String.valueOf(b));
-                        SharedPrefStorage.setKeyboardBackgroundColorPref(context, Color.argb(255, r, g, b));
-                        SharedPrefStorage.setKeyboardBackgroundColorPref(context, progress);
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-                });
                 rainbowSeekBarViewHolder.seekBar.setProgress(SharedPrefStorage
                         .getKeyboardBackgroundColorPref1(context));
+                LinearGradient colorGradient = new LinearGradient(0.f, 0.f, rainbowSeekBarViewHolder.seekBar.getMeasuredWidth() - rainbowSeekBarViewHolder.seekBar.getThumb().getIntrinsicWidth(), 0.f,
+                        new int[]{0xFF000000, 0xFF0000FF, 0xFF00FF00, 0xFF00FFFF,
+                                0xFFFF0000, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF},
+                        null, Shader.TileMode.CLAMP
+                );
+                ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                shape.getPaint().setShader(colorGradient);
+                rainbowSeekBarViewHolder.seekBar.setProgressDrawable(shape);
+                rainbowSeekBarViewHolder.seekBar.setMax(256 * 7 - 1);
                 break;
         }
         return convertView;
@@ -233,7 +279,7 @@ public class KeyboardSettingAdapter extends BaseAdapter {
 
         public RainbowSeekBarViewHolder(View itemView) {
             optionsTitle = (TextView) itemView.findViewById(R.id.itemRainbowSeekBarKeyboardSettingTitle);
-            seekBar = (ColorPickerSeekBar) itemView.findViewById(R.id.RainbowSeekBarKeyboardSetting);
+            seekBar = (SeekBar) itemView.findViewById(R.id.RainbowSeekBarKeyboardSetting);
         }
     }
 

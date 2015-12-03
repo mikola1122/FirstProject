@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/paddingListViewSettingKeyboard"
+    android:paddingRight="@dimen/paddingListViewSettingKeyboard">
 
-    <TextView
-        android:id="@+id/itemSeekBarKeyboardSettingTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text=""
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:layout_height="@dimen/itemsHeightSettingKeyboard"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/paddingItemsSettingKeyboard">
 
-    <SeekBar
-        android:id="@+id/SeekBarKeyboardSetting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left" />
+        <TextView
+            android:id="@+id/itemSeekBarKeyboardSettingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="sans-serif-light"
+            android:text=""
+            android:textColor="@color/textColorSettingKeyboard"
+            android:textSize="@dimen/itemsTextSizeSettingKeyboard" />
+
+        <SeekBar
+            android:id="@+id/SeekBarKeyboardSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left" />
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:background="@android:color/holo_blue_dark" />
+        android:layout_height="@dimen/lineSeparatorHeightSettingKeyboard"
+        android:background="@color/lineSeparatorBackgroundColorSettingKeyboard" />
+
 </LinearLayout>

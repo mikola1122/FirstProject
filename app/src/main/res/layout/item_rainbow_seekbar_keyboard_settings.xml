@@ -2,26 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/paddingListViewSettingKeyboard"
+    android:paddingRight="@dimen/paddingListViewSettingKeyboard">
 
-    <TextView
-        android:id="@+id/itemRainbowSeekBarKeyboardSettingTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text=""
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:layout_height="@dimen/rainbowHeightSettingKeyboard"
+        android:orientation="vertical">
 
-    <com.heliocratic.mikola.firstproject.ui.keybord_setting.items_settings.ColorPickerSeekBar
-        android:id="@+id/RainbowSeekBarKeyboardSetting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:paddingBottom="4dp"/>
+        <TextView
+            android:id="@+id/itemRainbowSeekBarKeyboardSettingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:fontFamily="sans-serif-light"
+            android:paddingLeft="@dimen/paddingItemsSettingKeyboard"
+            android:text=""
+            android:textColor="@color/textColorSettingKeyboard"
+            android:textSize="@dimen/itemsTextSizeSettingKeyboard" />
+
+        <SeekBar
+            android:id="@+id/RainbowSeekBarKeyboardSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:foregroundGravity="center"
+            android:layout_below="@+id/itemRainbowSeekBarKeyboardSettingTitle"
+            android:paddingBottom="2dp"
+            android:indeterminate="false" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:background="@android:color/holo_blue_dark" />
+        android:layout_height="@dimen/lineSeparatorHeightSettingKeyboard"
+        android:background="@color/lineSeparatorBackgroundColorSettingKeyboard" />
 </LinearLayout>

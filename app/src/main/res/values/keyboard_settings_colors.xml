@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorKeyboardBackgroundDefault">#A4A4A4</color>
+    
+    <color name="textColorSettingKeyboard">#ffffff</color>
 
-    <color name="separatorItemsBackgroundColor">#d4d0c8</color>
-    <color name="separatorItemsTextColor">#000000</color>
-    <color name="separatorItemsTextShadowColor">#A4A4A4</color>
+    <color name="listViewBackgroundColorSettingKeyboard">#444444</color>
+    <color name="lineSeparatorItemBackgroundColorSettingKeyboard">#ffffff</color>
+    <color name="lineSeparatorBackgroundColorSettingKeyboard">#88888888</color>
+    <color name="separatorItemsBackgroundColorSettingKeyboard">#88888888</color>
 </resources>

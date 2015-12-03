@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="row_separator_left_padding">26dp</dimen>
-    <dimen name="row_text_padding">4dp</dimen>
+    <dimen name="itemsHeightSettingKeyboard">56dp</dimen>
+    <dimen name="separatorHeightSettingKeyboard">38dp</dimen>
+    <dimen name="rainbowHeightSettingKeyboard">56dp</dimen>
+    <dimen name="lineSeparatorHeightSettingKeyboard">1dip</dimen>
+
+    <dimen name="paddingCheckBoxSettingKeyboard">5dp</dimen>
+    <dimen name="paddingListViewSettingKeyboard">5dp</dimen>
+    <dimen name="paddingItemsSettingKeyboard">5dp</dimen>
+    <dimen name="paddingRightLineSeparatorSettingKeyboard">7dp</dimen>
+
+    <dimen name="itemsTextSizeSettingKeyboard">16sp</dimen>
+
+    <dimen name="weightRainbowSeekBarSettingKeyboard">636px</dimen>
 </resources>
