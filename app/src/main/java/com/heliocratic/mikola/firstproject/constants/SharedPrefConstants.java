@@ -25,7 +25,7 @@ public class SharedPrefConstants {
     public static final int DEFAULT_KEYBOARD_BACKGROUND_TRANSPARENCY = 255;
     public static final int DEFAULT_KEYBOARD_SIZE_MODE = 0;
     public static final int DEFAULT_KEYBOARD_SIZE = 0;
-    public static final int DEFAULT_KEYBOARD_FONT_SIZE = 10;
+    public static final int DEFAULT_KEYBOARD_FONT_SIZE = 4;
     public static final int DEFAULT_KEYBOARD_FONT_STYLE = 0;
     public static final int DEFAULT_KEYBOARD_KEY_LABELS = 0;
 

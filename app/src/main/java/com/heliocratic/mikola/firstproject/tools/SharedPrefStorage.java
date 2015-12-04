@@ -134,7 +134,7 @@ public class SharedPrefStorage {
                 SharedPrefConstants.DEFAULT_KEYBOARD_ENABLE_STATISTIC);
     }
 
-    public static void setKeyboardPref(Context context, int value) {
+    public static void setKeyboardEnableStatisticPref(Context context, int value) {
         getPrefs(context).edit().putInt(SharedPrefConstants.KEY_KEYBOARD_ENABLE_STATISTIC, value).apply();
     }
 

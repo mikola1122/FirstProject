@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/paddingListViewSettingKeyboard"
+    android:paddingRight="@dimen/paddingListViewSettingKeyboard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/itemsHeightSettingKeyboard"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/paddingItemsSettingKeyboard">
+
+        <TextView
+            android:id="@+id/itemSeekBarKeyboardSettingTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="sans-serif-light"
+            android:text=""
+            android:textColor="@color/textColorSettingKeyboard"
+            android:textSize="@dimen/itemsTextSizeSettingKeyboard" />
+
+        <com.heliocratic.mikola.firstproject.ui.keybord_setting.items_settings.ProgressHintSeekBar
+            android:id="@+id/SeekBarKeyboardSetting1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lineSeparatorHeightSettingKeyboard"
+        android:background="@color/lineSeparatorBackgroundColorSettingKeyboard" />
+
+</LinearLayout>

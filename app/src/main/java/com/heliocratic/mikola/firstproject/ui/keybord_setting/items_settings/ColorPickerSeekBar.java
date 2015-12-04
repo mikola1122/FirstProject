@@ -6,10 +6,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.SeekBar;
-
-import com.heliocratic.mikola.firstproject.R;
 
 public class ColorPickerSeekBar extends SeekBar {
 
